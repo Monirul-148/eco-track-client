@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 export default function Home() {
 
-  // Hero Slides: শুধু এখানে image, title, description update করলে হবে
+  // Hero Slides:
   const heroSlides = [
     {
       image: "https://i.ibb.co/rR7R5sdW/ishikawa-noto-peninsula-135478.jpg",
@@ -16,12 +16,12 @@ export default function Home() {
       description: "Join the challenge to reduce single-use plastic this month."
     },
     {
-      image: "https://i.ibb.co/fmx8tBT/img01.jpg",
+      image: "https://i.ibb.co/5XXJmWJh/22222.jpg",
       title: "Tree Plantation Drive",
       description: "Plant trees and contribute to a greener future."
     },
     {
-      image: "https://i.ibb.co/BHcfwy4H/images.jpg",
+      image: "https://i.ibb.co/1fGrfW0w/amo-katsura.jpg",
       title: "Community Clean-Up",
       description: "Help clean your local parks and neighborhoods."
     },
