@@ -94,11 +94,11 @@ export default function Home() {
 
       {/* Live Statistics */}
       <section className="flex justify-center gap-10 my-10">
-        <div className="bg-white p-6 rounded-xl shadow-md text-center w-40">
+        <div className="bg-white p-6 rounded-xl shadow-md text-center w-80">
           <h3 className="text-lg font-semibold">CO₂ Saved</h3>
           <p className="text-2xl font-bold text-green-600">{stats.totalCO2} kg</p>
         </div>
-        <div className="bg-white p-6 rounded-xl shadow-md text-center w-40">
+        <div className="bg-white p-6 rounded-xl shadow-md text-center w-80">
           <h3 className="text-lg font-semibold">Plastic Reduced</h3>
           <p className="text-2xl font-bold text-green-600">{stats.totalPlastic} kg</p>
         </div>
