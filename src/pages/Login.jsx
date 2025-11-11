@@ -96,7 +96,7 @@ const handleRegister = (event) =>{
             error && <p className='text-red-500'>{error}</p>
         }
         </form>
-        <p>Already have an account? Please <Link className='text-blue-500 underline' to="/Login">Register</Link></p>
+        <p>Already have an account? Please <Link className='text-blue-500 underline' to="/Register">Register</Link></p>
       </div>
     </div>
   </div>
