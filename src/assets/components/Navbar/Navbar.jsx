@@ -35,7 +35,7 @@ const Navbar = () => {
       <button onClick={() => setOpen(!open)} className='md:hidden'><FiMenu size={24}/></button>
 
       {open && (
-        <div className='absolute top-16 left-0 w-full bg-green-700 flex flex-col items-center gap-3 py-4 md:hidden'>
+        <div className='absolute top-16 left-0 w-full flex flex-col items-center gap-3 py-4 md:hidden'>
           <NavLink to='/' onClick={()=>setOpen(false)}>Home</NavLink>
           <NavLink to='/challenges' onClick={()=>setOpen(false)}>Challenges</NavLink>
           <NavLink to='/my-activities' onClick={()=>setOpen(false)}>My Activities</NavLink>
