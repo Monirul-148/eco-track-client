@@ -7,7 +7,7 @@ const Navbar = () => {
   const user = null 
 
   return (
-    <nav className='bg-white shadow-sm text-black px-6 py-4 flex justify-between items-center'>
+    <nav className='bg-gray-200 shadow-md text-black px-6 py-4 flex justify-between items-center'>
       <div className='flex gap-1 items-center'>
         <img className='w-10 h-10' src="https://i.ibb.co/DfFs1kLK/leave-logo.webp" alt="" />
       <Link to='/' className='text-xl font-bold'> EcoTrack</Link>
@@ -16,9 +16,9 @@ const Navbar = () => {
       
 
       <div className='hidden md:flex gap-6'>
-        <NavLink to='/' className='hover:underline'>Home</NavLink>
-        <NavLink to='/challenges' className='hover:underline'>Challenges</NavLink>
-        <NavLink to='/my-activities' className='hover:underline'>My Activities</NavLink>
+        <NavLink to='/' className={({ isActive }) => (isActive ? "underline" : "")}>Home</NavLink>
+        <NavLink to='/challenges' className={({ isActive }) => (isActive ? "underline" : "")}>Challenges</NavLink>
+        <NavLink to='/my-activities' className={({ isActive }) => (isActive ? "underline" : "")}>My Activities</NavLink>
       </div>
 
       <div className='hidden md:flex gap-4'>
