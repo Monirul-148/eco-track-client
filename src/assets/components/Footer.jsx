@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
+        <footer className="footer footer-horizontal footer-center bg-base-300 text-base-content rounded p-10">
             <div className='flex gap-1 items-center'>
         <img className='w-10 h-10' src="https://i.ibb.co/DfFs1kLK/leave-logo.webp" alt="" />
       <a className='text-xl font-bold'> EcoTrack</a>
