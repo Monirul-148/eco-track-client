@@ -5,6 +5,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Link } from "react-router";
 
 export default function Home() {
 
@@ -78,13 +79,16 @@ export default function Home() {
                   src={slide.image}
                   alt={slide.title}
                   className="w-full h-[500px] object-cover rounded-lg"
-                />
-                <div className="absolute inset-0 bg-opacity-40 flex flex-col justify-center items-center text-white px-6 text-center">
+                 />
+                  <div className="absolute inset-0 bg-opacity-40 flex flex-col justify-center items-center text-white px-6 text-center">
                   <h2 className="text-3xl md:text-5xl font-bold mb-3">{slide.title}</h2>
                   <p className="text-lg md:text-xl mb-5">{slide.description}</p>
-                  <button className="bg-green-600 hover:bg-green-700 px-5 py-2 rounded-lg">
-                    View Challenge
-                  </button>
+                  <Link to="/challenges">
+                 <button className="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg transition duration-200">
+                   View Challenge
+                 </button>
+                   </Link>
+                  
                 </div>
               </div>
             </SwiperSlide>
@@ -105,7 +109,7 @@ export default function Home() {
       </section>
 
       {/* Active Challenges */}
-      <section className="px-6 mb-12">
+      <section className="px-6 mb-12 text-center flex flex-col items-center justify-center">
         <h2 className="text-3xl font-bold mb-6 text-green-700">Active Challenges</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {challenges.map((ch) => (
@@ -121,7 +125,7 @@ export default function Home() {
       </section>
 
       {/* Recent Tips */}
-      <section className="px-6 mb-12">
+      <section className="px-6 mb-12 text-center flex flex-col items-center justify-center">
         <h2 className="text-3xl font-bold mb-6 text-green-700">Recent Tips</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {tips.map((tip) => (
@@ -136,7 +140,7 @@ export default function Home() {
       </section>
 
       {/* Upcoming Events */}
-      <section className="px-6 mb-12">
+      <section className="px-6 mb-12 text-center flex flex-col items-center justify-center">
         <h2 className="text-3xl font-bold mb-6 text-green-700">Upcoming Events</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {events.map((ev) => (
@@ -150,7 +154,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Go Green */}
+      <div className="flex items-center justify-between p-20">
+       {/* Why Go Green */}
       <section className="px-6 mb-12">
         <h2 className="text-3xl font-bold mb-6 text-green-700">Why Go Green?</h2>
         <ul className="list-disc list-inside text-gray-700 space-y-2">
@@ -162,15 +167,17 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="px-6 mb-12">
-        <h2 className="text-3xl font-bold mb-6 text-green-700">How It Works</h2>
-        <ol className="list-decimal list-inside text-gray-700 space-y-2">
-          <li>Join a challenge →</li>
-          <li>Track your progress →</li>
-          <li>Share tips and inspire others</li>
-        </ol>
-      </section>
-
+      <section className="px-6 mb-12 ">
+  <h2 className="text-3xl font-bold mb-6 text-green-700">
+    How It Works
+  </h2>
+  <ol className="list-decimal list-inside text-gray-700 space-y-2 text-left inline-block">
+    <li>Join a challenge →</li>
+    <li>Track your progress →</li>
+    <li>Share tips and inspire others</li>
+  </ol>
+    </section>
+      </div>
     </div>
   );
 }
