@@ -9,7 +9,7 @@ import Home from './assets/components/Home/Home.jsx';
 // import MyActivities from './assets/components/MyActivities/MyActivities.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
-// import Challenges from './assets/components/Challenges.jsx';
+import Challenges from './assets/components/Challenges.jsx';
 import Tips from './pages/Tips.jsx';
 import Events from './pages/Event.jsx';
 import ChallengeDetails from './pages/ChallengeDetails.jsx';
@@ -41,10 +41,10 @@ const router = createBrowserRouter([
         path: 'tips',
         element: <Tips />
        },
-      //  {
-      //   path: 'Challenges',
-      //   element: <Challenges />
-      //  },
+       {
+        path: 'Challenges',
+        element: <Challenges />
+       },
        {
         path: 'event',
         element: <Events />
