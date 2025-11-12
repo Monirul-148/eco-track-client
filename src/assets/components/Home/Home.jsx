@@ -38,36 +38,36 @@ export default function Home() {
   const [events, setEvents] = useState([]);
   const [stats, setStats] = useState({ totalCO2: 0, totalPlastic: 0 });
 
-  // useEffect(() => {
-  //   // Fetch Challenges
-  //   axios.get("http://localhost:3000/api/user-challenges")
-  //     .then(res => setChallenges(Array.isArray(res.data) ? res.data.slice(0, 3) : []))
-  //     .catch(err => {
-  //       console.error(err);
-  //       setChallenges([]);
-  //     });
+  useEffect(() => {
+    // Fetch Challenges
+    axios.get("http://localhost:3000/api/user-challenges")
+      .then(res => setChallenges(Array.isArray(res.data) ? res.data.slice(0, 3) : []))
+      .catch(err => {
+        console.error(err);
+        setChallenges([]);
+      });
 
     // Fetch Tips
-    // axios.get("http://localhost:3000/api/tips")
-    //   .then(res => setTips(Array.isArray(res.data) ? res.data.slice(0, 5) : []))
-    //   .catch(err => {
-    //     console.error(err);
-    //     setTips([]);
-    //   });
+    axios.get("http://localhost:3000/api/tips")
+      .then(res => setTips(Array.isArray(res.data) ? res.data.slice(0, 5) : []))
+      .catch(err => {
+        console.error(err);
+        setTips([]);
+      });
 
     // Fetch Events
-    // axios.get("http://localhost:3000/api/events")
-    //   .then(res => setEvents(Array.isArray(res.data) ? res.data.slice(0, 4) : []))
-    //   .catch(err => {
-    //     console.error(err);
-    //     setEvents([]);
-    //   });
+    axios.get("http://localhost:3000/api/events")
+      .then(res => setEvents(Array.isArray(res.data) ? res.data.slice(0, 4) : []))
+      .catch(err => {
+        console.error(err);
+        setEvents([]);
+      });
 
     // Fetch Stats (example)
-  //   axios.get("http://localhost:3000/api/stats")
-  //     .then(res => setStats(res.data || { totalCO2: 0, totalPlastic: 0 }))
-  //     .catch(err => setStats({ totalCO2: 12345, totalPlastic: 6789 }));
-  // }, []);
+    axios.get("http://localhost:3000/api/stats")
+      .then(res => setStats(res.data || { totalCO2: 0, totalPlastic: 0 }))
+      .catch(err => setStats({ totalCO2: 12345, totalPlastic: 6789 }));
+  }, []);
 
   return (
     <div className="bg-gray-50 min-h-screen py-5">
