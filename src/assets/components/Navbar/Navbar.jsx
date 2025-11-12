@@ -7,7 +7,7 @@ const Navbar = () => {
   const user = null 
 
   return (
-    <nav className='bg-gray-200 shadow-md text-black px-6 py-4 flex justify-between items-center'>
+    <nav className='bg-gray-100 shadow-md text-black px-6 py-4 flex justify-between items-center'>
       <div className='flex gap-1 items-center'>
         <img className='w-10 h-10' src="https://i.ibb.co/DfFs1kLK/leave-logo.webp" alt="" />
       <Link to='/' className='text-xl font-bold'> EcoTrack</Link>
