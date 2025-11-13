@@ -43,7 +43,7 @@ export default function MyActivities() {
               className="bg-white shadow-md rounded-xl p-5 border hover:shadow-lg transition"
             >
               <img
-                src={activity.image || "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1470&q=80"}
+                src={activity.image || "https://i.ibb.co/7NS4QD9z/Tree-PNG-Photos.png"}
                 alt={activity.title}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
