@@ -6,7 +6,7 @@ const Challenges = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/models") 
+      .get("https://eco-track-server-dusky.vercel.app/models")
       .then((res) => {
         if (Array.isArray(res.data)) {
           setChallenges(res.data);
@@ -37,7 +37,7 @@ const Challenges = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {challenges.map((challenge, index) => (
             <div
-              key={challenge._id || index} 
+              key={challenge._id || index}
               className="bg-white shadow-md p-5 rounded-xl border border-gray-100 hover:shadow-lg transition"
             >
               <h3 className="text-xl font-semibold mb-2 text-green-800">

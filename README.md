@@ -1,3 +1,79 @@
+
+#  EcoTrack — Sustainable Living Community
+
+EcoTrack is a community platform where eco-conscious people can join sustainability challenges, share practical eco-tips, browse local green events, and track their personal environmental impact — all in one place!
+
+---
+
+##  Live Site URL
+ [EcoTrack Live Website]( https://neon-conkies-d96873.netlify.app/)
+
+---
+
+##  Website Features
+
+-  **Join Eco Challenges:** Participate in different environmental challenges and make a real impact.
+-  **Share Green Tips:** Post and explore community-submitted eco-friendly tips.
+- **Upcoming Events:** Discover and join upcoming local sustainability events.
+-  **Secure Login System:** Firebase authentication with Email/Password and Google login.
+-  **Personal Dashboard:** Track your progress and activities in one organized place.
+
+---
+
+## Technologies Used
+- React.js (Vite)
+- Tailwind CSS
+- Firebase Authentication
+- Node.js & Express.js (Server)
+- MongoDB Atlas (Database)
+
+---
+
+© 2025 **EcoTrack**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

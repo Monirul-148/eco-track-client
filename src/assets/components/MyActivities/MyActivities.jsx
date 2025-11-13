@@ -8,7 +8,7 @@ export default function MyActivities() {
   useEffect(() => {
     // 🔹 Example API call (change URL to your backend endpoint)
     axios
-      .get("http://localhost:3000/api/my-activities")
+      .get("https://eco-track-server-dusky.vercel.app/api/my-activities")
       .then((res) => {
         setActivities(res.data);
         setLoading(false);
@@ -22,7 +22,9 @@ export default function MyActivities() {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <p className="text-xl font-semibold text-gray-600">Loading activities...</p>
+        <p className="text-xl font-semibold text-gray-600">
+          Loading activities...
+        </p>
       </div>
     );
   }
@@ -43,13 +45,17 @@ export default function MyActivities() {
               className="bg-white shadow-md rounded-xl p-5 border hover:shadow-lg transition"
             >
               <img
-                src={activity.image || "https://i.ibb.co/7NS4QD9z/Tree-PNG-Photos.png"}
+                src={
+                  activity.image ||
+                  "https://i.ibb.co/7NS4QD9z/Tree-PNG-Photos.png"
+                }
                 alt={activity.title}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
               <h2 className="text-2xl font-semibold mb-2">{activity.title}</h2>
               <p className="text-gray-600 text-sm mb-2">
-                Category: <span className="font-medium">{activity.category}</span>
+                Category:{" "}
+                <span className="font-medium">{activity.category}</span>
               </p>
               <p className="text-gray-700 mb-4">{activity.description}</p>
               <div className="flex justify-between text-sm text-gray-600">
