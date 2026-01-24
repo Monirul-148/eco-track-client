@@ -1,40 +1,58 @@
+# EcoTrack 🌿
 
-#  EcoTrack — Sustainable Living Community
-
-EcoTrack is a community platform where eco-conscious people can join sustainability challenges, share practical eco-tips, browse local green events, and track their personal environmental impact — all in one place!
-
----
-
-##  Live Site URL
- [EcoTrack Live Website]( https://neon-conkies-d96873.netlify.app/)
+**EcoTrack** is a community-driven platform where eco-conscious users can:  
+- Participate in sustainability challenges  
+- Share practical eco-tips  
+- Browse local green events  
+- Track personal environmental impact  
 
 ---
 
-##  Website Features
+## 🏠 Live Site
 
--  **Join Eco Challenges:** Participate in different environmental challenges and make a real impact.
--  **Share Green Tips:** Post and explore community-submitted eco-friendly tips.
-- **Upcoming Events:** Discover and join upcoming local sustainability events.
--  **Secure Login System:** Firebase authentication with Email/Password and Google login.
--  **Personal Dashboard:** Track your progress and activities in one organized place.
+[Visit Live Site](https://YOUR-VERCEL-OR-NETLIFY-LINK.com)
 
 ---
 
-## Technologies Used
-- React.js (Vite)
-- Tailwind CSS
-- Firebase Authentication
-- Node.js & Express.js (Server)
-- MongoDB Atlas (Database)
+## 📦 Features
+
+- **User Authentication**
+  - Email & password login/register  
+  - Google login integration  
+- **Challenges**
+  - View, join, and track eco challenges  
+  - Add new challenges (protected route)  
+- **Tips & Events**
+  - Recent community tips  
+  - Upcoming events display  
+- **Stats**
+  - Live stats for CO₂, Plastic, and Energy saved  
+- **Error Handling**
+  - Custom 404 / error page  
+- **Responsive Design**
+  - Mobile, tablet, and desktop friendly  
 
 ---
 
-© 2025 **EcoTrack**
+## 💻 Tech Stack
 
+- **Frontend:** React 19, TailwindCSS 4, DaisyUI  
+- **Routing:** React Router v7  
+- **Authentication:** Firebase Auth  
+- **State Management:** React Context API  
+- **HTTP Requests:** Axios  
+- **Carousel / Slider:** Swiper, React Slick  
+- **Notifications:** React Toastify  
+- **Version Control:** Git & GitHub  
 
+---
 
+## ⚡ Setup Instructions
 
-
+1. **Clone the repository**
+```bash
+git clone https://github.com/Monirul-148/eco-track-client.git
+cd ecotrack-client
 
 
 
