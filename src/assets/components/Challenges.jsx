@@ -1,72 +1,58 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-const Challenges = () => {
+export default function Challenges() {
   const [challenges, setChallenges] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://eco-track-server-dusky.vercel.app/models")
-      .then((res) => {
-        if (Array.isArray(res.data)) {
-          setChallenges(res.data);
-        } else {
-          setChallenges([]);
-        }
-      })
-      .catch((err) => {
-        console.error("AxiosError:", err);
-        setChallenges([]);
-      });
+    axios.get("http://localhost:3000/api/challenges")
+      .then(res => setChallenges(res.data))
+      .catch(err => console.error(err));
   }, []);
 
   return (
-    <div className="px-6 py-10 bg-gray-50 min-h-screen">
-      <div className="flex gap-2 items-center justify-center mb-10">
-        <img
-          className="w-14 h-14"
-          src="https://i.ibb.co/DfFs1kLK/leave-logo.webp"
-          alt="Logo"
-        />
-        <h2 className="text-5xl font-bold text-green-800">
-          Sustainability Challenges
-        </h2>
-      </div>
+    <div className="max-w-7xl mx-auto px-4 py-10">
+      <h2 className="text-3xl font-bold text-center mb-8">
+        Sustainability Challenges
+      </h2>
 
-      {challenges.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {challenges.map((challenge, index) => (
-            <div
-              key={challenge._id || index}
-              className="bg-white shadow-md p-5 rounded-xl border border-gray-100 hover:shadow-lg transition"
-            >
-              <h3 className="text-xl font-semibold mb-2 text-green-800">
-                {challenge.title || "Untitled Challenge"}
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
+        {challenges.map(challenge => (
+          <div key={challenge._id} className="border rounded-lg shadow">
+            <img
+              src={challenge.imageUrl}
+              alt={challenge.title}
+              className="h-48 w-full object-cover rounded-t-lg"
+            />
+
+            <div className="p-4">
+              <h3 className="text-xl font-semibold">
+                {challenge.title}
               </h3>
-              <p className="text-sm text-gray-600 mb-3">
-                Category:{" "}
-                <span className="font-medium">
-                  {challenge.category || "N/A"}
-                </span>
+
+              <p className="text-sm text-gray-500">
+                {challenge.category}
               </p>
-              <p className="text-gray-700 mb-4">
-                {challenge.description
-                  ? challenge.description.slice(0, 150)
-                  : "No description available."}
+
+              <p className="text-sm mt-2">
+                {challenge.description}
               </p>
-              <button className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg w-full">
-                Join Challenge
-              </button>
+
+              <p className="text-sm mt-2">
+                👥 Participants: {challenge.participants}
+              </p>
+
+              <Link
+                to={`/challenges/${challenge._id}`}
+                className="inline-block mt-4 text-green-600 font-semibold"
+              >
+                View Details →
+              </Link>
             </div>
-          ))}
-        </div>
-      ) : (
-        <p className="text-center text-gray-500 mt-10">
-          No challenges available at the moment.
-        </p>
-      )}
+          </div>
+        ))}
+      </div>
     </div>
   );
-};
-
-export default Challenges;
+}

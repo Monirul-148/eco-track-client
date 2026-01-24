@@ -1,28 +1,37 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { app } from "../firebase";
+import { createContext, useState, useEffect, useContext } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../firebase/firebase.init";
 
-const AuthContext = createContext();
-export const useAuth = () => useContext(AuthContext);
+// Context declare
+export const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
-  const auth = getAuth(app);
-  const [currentUser, setCurrentUser] = useState(null);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
-  const register = (email, password) => createUserWithEmailAndPassword(auth, email, password);
-  const logout = () => signOut(auth);
-  const loginWithGoogle = () => signInWithPopup(auth, new GoogleAuthProvider());
-
+  // 🔐 Auth state observer
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
-      setCurrentUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
       setLoading(false);
     });
-    return unsubscribe;
+    return () => unsubscribe();
   }, []);
 
-  const value = { currentUser, login, register, logout, loginWithGoogle };
-  return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
-}
+  // 🚪 Logout function (NEW)
+  const logout = async () => {
+    setLoading(true);
+    await signOut(auth);
+    setUser(null);
+    setLoading(false);
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, loading, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+// ✅ Custom hook
+export const useAuth = () => useContext(AuthContext);

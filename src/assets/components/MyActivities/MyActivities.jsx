@@ -1,71 +1,43 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import { useAuth } from "../../../contexts/AuthContext";
+import { API } from "../../../utils/axios";
 
-export default function MyActivities() {
+const MyActivities = () => {
+  const { user } = useAuth();
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 🔹 Example API call (change URL to your backend endpoint)
-    axios
-      .get("https://eco-track-server-dusky.vercel.app/api/my-activities")
-      .then((res) => {
+    if (!user?.email) return;
+
+    API.get(`/activities?email=${user.email}`)
+      .then(res => {
         setActivities(res.data);
         setLoading(false);
       })
-      .catch((err) => {
-        console.error("Error loading activities:", err);
+      .catch(err => {
+        console.error(err);
         setLoading(false);
       });
-  }, []);
+  }, [user]);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <p className="text-xl font-semibold text-gray-600">
-          Loading activities...
-        </p>
-      </div>
-    );
-  }
+  if (loading) return <p className="text-center mt-10">Loading activities...</p>;
+  if (activities.length === 0) return <p className="text-center mt-10">No activities found</p>;
 
   return (
-    <div className="container mx-auto mt-10 px-4">
-      <h1 className="text-4xl font-bold text-center mb-10">My Activities</h1>
-
-      {activities.length === 0 ? (
-        <div className="text-center text-gray-500 text-lg">
-          You haven’t joined any challenges yet.
-        </div>
-      ) : (
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
-          {activities.map((activity) => (
-            <div
-              key={activity._id}
-              className="bg-white shadow-md rounded-xl p-5 border hover:shadow-lg transition"
-            >
-              <img
-                src={
-                  activity.image ||
-                  "https://i.ibb.co/7NS4QD9z/Tree-PNG-Photos.png"
-                }
-                alt={activity.title}
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h2 className="text-2xl font-semibold mb-2">{activity.title}</h2>
-              <p className="text-gray-600 text-sm mb-2">
-                Category:{" "}
-                <span className="font-medium">{activity.category}</span>
-              </p>
-              <p className="text-gray-700 mb-4">{activity.description}</p>
-              <div className="flex justify-between text-sm text-gray-600">
-                <p>Progress: {activity.progress}%</p>
-                <p> Points: {activity.points}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+    <div className="max-w-6xl mx-auto px-4 py-10">
+      <h2 className="text-3xl font-bold mb-6">My Activities</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {activities.map(a => (
+          <div key={a._id} className="card bg-base-100 shadow-md p-5">
+            <h3 className="text-xl font-semibold mb-2">{a.challengeTitle}</h3>
+            <p className="text-sm text-gray-500 mb-1">Category: {a.category}</p>
+            <p className="text-sm">Progress: {a.progress}%</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
+
+export default MyActivities;
