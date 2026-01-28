@@ -17,10 +17,22 @@ const Login = () => {
 
   const [loading, setLoading] = useState(false);
 
+  // Save token to localStorage
+  const saveToken = async (user) => {
+    try {
+      const token = await user.getIdToken();
+      localStorage.setItem("accessToken", token);
+    } catch (err) {
+      console.error("Token save failed:", err);
+    }
+  };
+
   const handleGoogleSignIn = async () => {
     try {
       setLoading(true);
-      await signInWithPopup(auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      await saveToken(user);
       toast.success("Google login successful!");
       navigate(from, { replace: true });
     } catch (error) {
@@ -37,7 +49,9 @@ const Login = () => {
 
     try {
       setLoading(true);
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      await saveToken(user);
       toast.success("Login successful!");
       navigate(from, { replace: true });
     } catch (error) {
@@ -50,7 +64,6 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
       <div className="grid grid-cols-1 lg:grid-cols-2 bg-base-100 rounded-xl shadow-2xl max-w-5xl w-full">
-
         {/* ===== LEFT SIDE (FORM) ===== */}
         <div className="p-8">
           <h1 className="text-4xl font-bold mb-2">Login to EcoTrack</h1>
@@ -113,7 +126,7 @@ const Login = () => {
           </p>
         </div>
 
-        {/* ===== RIGHT SIDE IMAGE (WITH GAP) ===== */}
+        {/* ===== RIGHT SIDE IMAGE ===== */}
         <div className="hidden lg:flex items-center justify-center p-4">
           <img
             src="https://i.ibb.co/zWXCj9Tv/online-registration-form-and-Sign-in-button-generated.jpg"
@@ -121,7 +134,6 @@ const Login = () => {
             className="h-full w-full object-cover rounded-xl"
           />
         </div>
-
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const AddChallenge = () => {
     }
 
     axios
-      .post("http://localhost:3000/api/challenges", form)
+      .post("eco-track-server-dusky.vercel.app/api/challenges", form)
       .then(() => toast.success("Challenge added successfully"))
       .catch(() => toast.error("Failed to add challenge"));
   };

@@ -7,8 +7,14 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { user, logout } = useAuth();
 
+  // Common function to handle active link styling
+  const activeClass = ({ isActive }) =>
+    isActive
+      ? "text-blue-500 border-b-2 border-blue-500 pb-1"
+      : "text-black hover:text-blue-500";
+
   return (
-    <nav className="bg-gray-100 shadow-md text-black px-6 py-4 flex justify-between items-center">
+    <nav className="bg-gray-100 shadow-md text-black px-6 py-4 flex justify-between items-center relative">
       <div className="flex gap-1 items-center">
         <img
           className="w-10 h-10"
@@ -22,9 +28,9 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/challenges">Challenges</NavLink>
-        <NavLink to="/my-activities">My Activities</NavLink>
+        <NavLink to="/" className={activeClass}>Home</NavLink>
+        <NavLink to="/challenges" className={activeClass}>Challenges</NavLink>
+        <NavLink to="/my-activities" className={activeClass}>My Activities</NavLink>
       </div>
 
       {/* Desktop Auth Buttons */}
@@ -62,9 +68,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {open && (
         <div className="absolute top-16 left-0 w-full bg-white flex flex-col items-center gap-3 py-4 md:hidden">
-          <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
-          <NavLink to="/challenges" onClick={() => setOpen(false)}>Challenges</NavLink>
-          <NavLink to="/my-activities" onClick={() => setOpen(false)}>My Activities</NavLink>
+          <NavLink to="/" className={activeClass} onClick={() => setOpen(false)}>Home</NavLink>
+          <NavLink to="/challenges" className={activeClass} onClick={() => setOpen(false)}>Challenges</NavLink>
+          <NavLink to="/my-activities" className={activeClass} onClick={() => setOpen(false)}>My Activities</NavLink>
 
           {!user ? (
             <>
