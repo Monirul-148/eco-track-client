@@ -1,4 +1,4 @@
-# EcoTrack 🌿
+# EcoTrack 
 
 **EcoTrack** is a community-driven platform where eco-conscious users can:  
 - Participate in sustainability challenges  
@@ -8,13 +8,13 @@
 
 ---
 
-## 🏠 Live Site
+##  Live Site
 
-[Visit Live Site](https://YOUR-VERCEL-OR-NETLIFY-LINK.com)
+Visit Live Site: glowing-cheesecake-ec1806.netlify.app
 
 ---
 
-## 📦 Features
+##  Features
 
 - **User Authentication**
   - Email & password login/register  
@@ -34,7 +34,7 @@
 
 ---
 
-## 💻 Tech Stack
+##  Tech Stack
 
 - **Frontend:** React 19, TailwindCSS 4, DaisyUI  
 - **Routing:** React Router v7  
@@ -50,9 +50,7 @@
 ## ⚡ Setup Instructions
 
 1. **Clone the repository**
-```bash
-git clone https://github.com/Monirul-148/eco-track-client.git
-cd ecotrack-client
+
 
 
 
